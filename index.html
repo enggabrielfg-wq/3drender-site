@@ -4,52 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Render 3D Profissional | Maquete Eletrônica e Arquitetura</title>
+<title>Render 3D Profissional | Arquitetura e Interiores</title>
 
-<meta name="description" content="Renderização 3D profissional para arquitetura, interiores e fachadas. Imagens realistas que valorizam seu projeto e ajudam a vender mais. Solicite orçamento.">
-
-<meta name="keywords" content="render 3d, renderização 3d, maquete eletrônica, arquitetura 3d, render realista, interiores 3d">
-
-<meta name="author" content="Gabriel">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Render 3D Profissional">
-<meta property="og:description" content="Imagens realistas para arquitetura e interiores.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-<meta property="og:type" content="website">
+<meta name="description" content="Renderização 3D profissional para arquitetura, interiores e fachadas. Imagens realistas que valorizam seu projeto.">
 
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/page-flip/dist/js/page-flip.browser.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family: Arial, sans-serif;
+  font-family:Arial;
   background:#070707;
   color:#fff;
-  overflow-x:hidden;
-}
-
-/* LOADER */
-#loader{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-.loader-text{
-  font-size:20px;
-  letter-spacing:3px;
-  animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-  0%{opacity:0.3}
-  50%{opacity:1}
-  100%{opacity:0.3}
 }
 
 /* NAV */
@@ -61,10 +29,6 @@ nav{
   justify-content:space-between;
   z-index:1000;
 }
-nav.scrolled{
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
-}
 nav a{color:#fff;margin-left:20px;text-decoration:none}
 
 /* HERO */
@@ -75,127 +39,122 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  position:relative;
 }
-header::after{
-  content:"";
-  position:absolute;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.75);
-}
-.hero{position:relative;z-index:1;max-width:700px}
 .hero h1{font-size:50px}
-.hero p{color:#ccc;margin-top:10px}
-
 .btn{
-  margin-top:25px;
-  display:inline-block;
+  margin-top:20px;
   padding:14px 30px;
-  background:linear-gradient(45deg,#00ff88,#00c853);
+  background:#00ff88;
   color:#000;
-  border-radius:6px;
   text-decoration:none;
-  transition:0.3s;
 }
-.btn:hover{transform:scale(1.08)}
 
+/* SECTIONS */
 section{padding:100px 20px;text-align:center}
-h2{margin-bottom:20px}
-.text{max-width:800px;margin:auto;color:#ccc}
 
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.card{
-  padding:30px;
-  border-radius:15px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
+/* REVISTA */
+.revista-container{
+  display:flex;
+  justify-content:center;
+  margin-top:40px;
 }
 
-.portfolio{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:15px;
+#flipbook{
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
 }
-.portfolio img{
+
+.page{
   width:100%;
-  border-radius:12px;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  background:#111;
 }
 
-footer{padding:30px;color:#777;text-align:center}
+.page img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.capa{
+  background:linear-gradient(135deg,#00ff88,#00c853);
+  color:#000;
+}
+
+.controls button{
+  margin:10px;
+  padding:10px 20px;
+  border:none;
+  background:#00ff88;
+  cursor:pointer;
+}
 </style>
 </head>
 
 <body>
 
-<div id="loader"><div class="loader-text">CARREGANDO...</div></div>
-
-<nav id="nav">
+<nav>
   <h2>3D Render</h2>
   <div>
     <a href="#">Início</a>
-    <a href="#servicos">Serviços</a>
     <a href="#portfolio">Portfólio</a>
   </div>
 </nav>
 
 <header>
-  <div class="hero" data-aos="fade-up">
-    <h1>Renderização 3D Profissional para Arquitetura</h1>
-    <p>Imagens realistas de interiores e fachadas que valorizam seu projeto e aumentam suas chances de venda</p>
-    <a class="btn" href="https://wa.me/45999685595">Solicitar Orçamento</a>
+  <div class="hero">
+    <h1>Renderização 3D Profissional</h1>
+    <p>Imagens que vendem seu projeto</p>
+    <a class="btn" href="https://wa.me/45999685595">Orçamento</a>
   </div>
 </header>
 
-<section id="servicos">
-<h2>Serviços de Renderização 3D</h2>
-<p class="text">
-Oferecemos renderizações 3D realistas para projetos arquitetônicos, incluindo imagens externas, interiores e plantas humanizadas. Nosso objetivo é transformar seu projeto em uma apresentação visual impactante.
-</p>
-
-<div class="services">
-<div class="card">Render Externo (fachadas realistas)</div>
-<div class="card">Render Interno (ambientes detalhados)</div>
-<div class="card">Planta Humanizada para apresentação</div>
-</div>
-</section>
-
 <section id="portfolio">
-<h2>Portfólio de Render 3D</h2>
-<p class="text">
-Confira alguns exemplos de imagens 3D produzidas para projetos arquitetônicos e interiores.
-</p>
+  <h2>Apresentação de Projeto</h2>
 
-<div class="portfolio">
-<img alt="Render 3D fachada" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-<img alt="Render 3D interior" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-<img alt="Projeto arquitetônico 3D" src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
-</div>
+  <div class="revista-container">
+    <div id="flipbook"></div>
+  </div>
+
+  <div class="controls">
+    <button onclick="pageFlip.flipPrev()">⬅️</button>
+    <button onclick="pageFlip.flipNext()">➡️</button>
+  </div>
 </section>
 
-<section>
-<h2>Por que investir em renderização 3D?</h2>
-<p class="text">
-A renderização 3D permite visualizar o projeto antes da execução, facilitando decisões, reduzindo erros e aumentando o valor percebido pelo cliente. É uma ferramenta essencial para arquitetos, engenheiros e construtoras.
-</p>
-</section>
-
-<footer>© 2026 - Gabriel | Renderização 3D</footer>
+<footer>© 2026 - Gabriel</footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script>
-AOS.init({duration:1000,once:true});
+const pageFlip = new St.PageFlip(
+  document.getElementById("flipbook"),
+  {
+    width: 400,
+    height: 550,
+    showCover: true,
+    maxShadowOpacity: 0.5
+  }
+);
 
-window.onload = () => {
-  document.getElementById("loader").style.display="none";
-}
+pageFlip.loadFromHTML([
+  `<div class="page capa">
+      <h1>Projeto Residencial</h1>
+      <p>Renderização 3D</p>
+  </div>`,
 
-window.addEventListener("scroll",()=>{
-  document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50)
-})
+  `<div class="page"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></div>`,
+  `<div class="page"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"></div>`,
+  `<div class="page"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e"></div>`,
+
+  `<div class="page">
+      <h2>Gostou do projeto?</h2>
+      <a href="https://wa.me/45999685595">Fale comigo</a>
+  </div>`
+]);
 </script>
 
 </body>
