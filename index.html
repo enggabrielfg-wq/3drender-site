@@ -3,7 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D Render | Gabriel</title>
+
+<title>Render 3D Profissional | Maquete Eletrônica e Arquitetura</title>
+
+<meta name="description" content="Renderização 3D profissional para arquitetura, interiores e fachadas. Imagens realistas que valorizam seu projeto e ajudam a vender mais. Solicite orçamento.">
+
+<meta name="keywords" content="render 3d, renderização 3d, maquete eletrônica, arquitetura 3d, render realista, interiores 3d">
+
+<meta name="author" content="Gabriel">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Render 3D Profissional">
+<meta property="og:description" content="Imagens realistas para arquitetura e interiores.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<meta property="og:type" content="website">
 
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
@@ -39,17 +52,6 @@ body{
   100%{opacity:0.3}
 }
 
-/* CURSOR */
-.cursor{
-  width:20px;height:20px;
-  border:2px solid #00ff88;
-  border-radius:50%;
-  position:fixed;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  transition:0.1s;
-}
-
 /* NAV */
 nav{
   position:fixed;
@@ -57,8 +59,6 @@ nav{
   padding:15px 40px;
   display:flex;
   justify-content:space-between;
-  background:transparent;
-  transition:0.3s;
   z-index:1000;
 }
 nav.scrolled{
@@ -84,7 +84,7 @@ header::after{
   background:rgba(0,0,0,0.75);
 }
 .hero{position:relative;z-index:1;max-width:700px}
-.hero h1{font-size:55px}
+.hero h1{font-size:50px}
 .hero p{color:#ccc;margin-top:10px}
 
 .btn{
@@ -99,11 +99,10 @@ header::after{
 }
 .btn:hover{transform:scale(1.08)}
 
-/* SECTIONS */
 section{padding:100px 20px;text-align:center}
-h2{margin-bottom:40px}
+h2{margin-bottom:20px}
+.text{max-width:800px;margin:auto;color:#ccc}
 
-/* CARDS */
 .services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -114,13 +113,8 @@ h2{margin-bottom:40px}
   border-radius:15px;
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(12px);
-  transition:0.3s;
-}
-.card:hover{
-  transform:translateY(-12px) scale(1.02);
 }
 
-/* PORTFOLIO */
 .portfolio{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -129,25 +123,8 @@ h2{margin-bottom:40px}
 .portfolio img{
   width:100%;
   border-radius:12px;
-  transition:0.5s;
-}
-.portfolio img:hover{
-  transform:scale(1.08);
 }
 
-/* WHATS FLOAT */
-.whats{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  padding:15px;
-  border-radius:50%;
-  font-size:20px;
-  text-decoration:none;
-}
-
-/* FOOTER */
 footer{padding:30px;color:#777;text-align:center}
 </style>
 </head>
@@ -155,7 +132,6 @@ footer{padding:30px;color:#777;text-align:center}
 <body>
 
 <div id="loader"><div class="loader-text">CARREGANDO...</div></div>
-<div class="cursor"></div>
 
 <nav id="nav">
   <h2>3D Render</h2>
@@ -168,56 +144,58 @@ footer{padding:30px;color:#777;text-align:center}
 
 <header>
   <div class="hero" data-aos="fade-up">
-    <h1>Impacto Visual em 3D</h1>
-    <p>Renderizações realistas que vendem seu projeto antes mesmo da obra começar</p>
+    <h1>Renderização 3D Profissional para Arquitetura</h1>
+    <p>Imagens realistas de interiores e fachadas que valorizam seu projeto e aumentam suas chances de venda</p>
     <a class="btn" href="https://wa.me/45999685595">Solicitar Orçamento</a>
   </div>
 </header>
 
 <section id="servicos">
-<h2 data-aos="fade-up">Serviços</h2>
+<h2>Serviços de Renderização 3D</h2>
+<p class="text">
+Oferecemos renderizações 3D realistas para projetos arquitetônicos, incluindo imagens externas, interiores e plantas humanizadas. Nosso objetivo é transformar seu projeto em uma apresentação visual impactante.
+</p>
 
 <div class="services">
-<div class="card" data-aos="zoom-in">Render Externo</div>
-<div class="card" data-aos="zoom-in" data-aos-delay="100">Render Interno</div>
-<div class="card" data-aos="zoom-in" data-aos-delay="200">Planta Humanizada</div>
+<div class="card">Render Externo (fachadas realistas)</div>
+<div class="card">Render Interno (ambientes detalhados)</div>
+<div class="card">Planta Humanizada para apresentação</div>
 </div>
 </section>
 
 <section id="portfolio">
-<h2 data-aos="fade-up">Portfólio</h2>
+<h2>Portfólio de Render 3D</h2>
+<p class="text">
+Confira alguns exemplos de imagens 3D produzidas para projetos arquitetônicos e interiores.
+</p>
 
 <div class="portfolio">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-<img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
+<img alt="Render 3D fachada" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<img alt="Render 3D interior" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+<img alt="Projeto arquitetônico 3D" src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
 </div>
 </section>
 
-<footer>© 2026 - Gabriel</footer>
+<section>
+<h2>Por que investir em renderização 3D?</h2>
+<p class="text">
+A renderização 3D permite visualizar o projeto antes da execução, facilitando decisões, reduzindo erros e aumentando o valor percebido pelo cliente. É uma ferramenta essencial para arquitetos, engenheiros e construtoras.
+</p>
+</section>
 
-<a class="whats" href="https://wa.me/45999685595">💬</a>
+<footer>© 2026 - Gabriel | Renderização 3D</footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
 AOS.init({duration:1000,once:true});
 
-// LOADER
 window.onload = () => {
   document.getElementById("loader").style.display="none";
 }
 
-// NAV SCROLL
 window.addEventListener("scroll",()=>{
   document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50)
 })
-
-// CURSOR
-const cursor = document.querySelector(".cursor");
-document.addEventListener("mousemove",e=>{
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
 </script>
 
 </body>
