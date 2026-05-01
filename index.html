@@ -1,140 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>3D Render | Gabriel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Render | Gabriel</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(180deg, #000, #111);
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  color: #fff;
+}
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
+/* NAVBAR */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.6);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+}
 
-    p {
-      font-size: 18px;
-      color: #ccc;
-      max-width: 500px;
-    }
+nav h2 {
+  font-size: 18px;
+}
 
-    .btn {
-      margin-top: 25px;
-      padding: 14px 28px;
-      background: #00c853;
-      color: #000;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
 
-    .btn:hover {
-      background: #00e676;
-    }
+/* HERO */
+header {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
 
-    section {
-      padding: 60px 20px;
-      text-align: center;
-    }
+header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
+.hero {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
 
-    .card {
-      background: #1a1a1a;
-      padding: 25px;
-      border-radius: 10px;
-    }
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
 
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
-    }
+.hero p {
+  color: #ccc;
+  font-size: 18px;
+}
 
-    .portfolio img {
-      width: 100%;
-      border-radius: 8px;
-    }
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 30px;
+  background: #00ff88;
+  color: #000;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-    footer {
-      padding: 30px;
-      text-align: center;
-      color: #777;
-    }
-  </style>
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* SECTION */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+/* CARDS */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.1);
+}
+
+/* PORTFOLIO */
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 15px;
+}
+
+.portfolio img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+.portfolio img:hover {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+  padding: 30px;
+  text-align: center;
+  color: #777;
+}
+
+</style>
 </head>
 
 <body>
 
+<nav>
+  <h2>3D Render</h2>
+  <div>
+    <a href="#">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#portfolio">Portfólio</a>
+  </div>
+</nav>
+
 <header>
-  <h1>Renderizações 3D Profissionais</h1>
-  <p>Imagens realistas para valorizar seus projetos e impressionar clientes.</p>
-  <a class="btn" href="https://wa.me/45999685595">Fale comigo no WhatsApp</a>
+  <div class="hero" data-aos="fade-up">
+    <h1>Renderizações 3D de Alto Impacto</h1>
+    <p>Transforme seus projetos em imagens realistas e impressione seus clientes</p>
+    <a class="btn" href="https://wa.me/45999685595">Solicitar Orçamento</a>
+  </div>
 </header>
 
-<section>
-  <h2>Serviços</h2>
+<section id="servicos">
+  <h2 data-aos="fade-up">Serviços</h2>
 
   <div class="services">
-    <div class="card">
-      <h3>Renderização 3D</h3>
-      <p>Imagens externas e internas com alto realismo.</p>
+    <div class="card" data-aos="zoom-in">
+      <h3>Render Externo</h3>
+      <p>Fachadas realistas com iluminação e materiais precisos.</p>
     </div>
 
-    <div class="card">
-      <h3>Modelagem 3D</h3>
-      <p>Criação de modelos detalhados para seus projetos.</p>
+    <div class="card" data-aos="zoom-in" data-aos-delay="100">
+      <h3>Render Interno</h3>
+      <p>Ambientes com alto nível de detalhamento e realismo.</p>
     </div>
 
-    <div class="card">
-      <h3>Plantas Humanizadas</h3>
-      <p>Apresentações visuais claras e profissionais.</p>
+    <div class="card" data-aos="zoom-in" data-aos-delay="200">
+      <h3>Planta Humanizada</h3>
+      <p>Apresentação clara e profissional do layout.</p>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Portfólio</h2>
+<section id="portfolio">
+  <h2 data-aos="fade-up">Portfólio</h2>
 
   <div class="portfolio">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-    <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" data-aos="fade-up">
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" data-aos="fade-up" data-aos-delay="100">
+    <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e" data-aos="fade-up" data-aos-delay="200">
   </div>
 </section>
 
 <footer>
   <p>© 2026 - Gabriel | 3D Render</p>
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 1000,
+  once: true
+});
+</script>
 
 </body>
 </html>
