@@ -6,7 +6,7 @@
 
 <title>Render 3D Profissional | Arquitetura e Interiores</title>
 
-<meta name="description" content="Renderização 3D profissional para arquitetura, interiores e fachadas. Imagens realistas que valorizam seu projeto.">
+<meta name="description" content="Renderização 3D profissional para arquitetura, interiores e fachadas.">
 
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/page-flip/dist/js/page-flip.browser.js"></script>
@@ -18,6 +18,12 @@ body{
   font-family:Arial;
   background:#070707;
   color:#fff;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
 }
 
 /* NAV */
@@ -28,6 +34,8 @@ nav{
   display:flex;
   justify-content:space-between;
   z-index:1000;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
 }
 nav a{color:#fff;margin-left:20px;text-decoration:none}
 
@@ -41,12 +49,23 @@ header{
   text-align:center;
 }
 .hero h1{font-size:50px}
+.hero p{opacity:0.8}
+
+/* BOTÃO */
 .btn{
   margin-top:20px;
   padding:14px 30px;
-  background:#00ff88;
+  background:linear-gradient(135deg,#00ff88,#00c853);
   color:#000;
   text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 30px rgba(0,255,136,0.4);
 }
 
 /* SECTIONS */
@@ -60,7 +79,11 @@ section{padding:100px 20px;text-align:center}
 }
 
 #flipbook{
-  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  box-shadow: 
+    0 30px 80px rgba(0,0,0,0.9),
+    inset 0 0 40px rgba(255,255,255,0.05);
+  border-radius:10px;
+  overflow:hidden;
 }
 
 .page{
@@ -71,12 +94,26 @@ section{padding:100px 20px;text-align:center}
   align-items:center;
   flex-direction:column;
   background:#111;
+  position:relative;
+  transition:0.3s;
+}
+
+.page:hover{
+  transform:scale(1.01);
 }
 
 .page img{
   width:100%;
   height:100%;
   object-fit:cover;
+}
+
+.page p{
+  position:absolute;
+  bottom:20px;
+  background:rgba(0,0,0,0.6);
+  padding:10px;
+  font-size:14px;
 }
 
 .capa{
@@ -90,6 +127,14 @@ section{padding:100px 20px;text-align:center}
   border:none;
   background:#00ff88;
   cursor:pointer;
+  border-radius:5px;
+}
+
+/* FOOTER */
+footer{
+  padding:40px;
+  background:#000;
+  opacity:0.6;
 }
 </style>
 </head>
@@ -105,14 +150,14 @@ section{padding:100px 20px;text-align:center}
 </nav>
 
 <header>
-  <div class="hero">
+  <div class="hero" data-aos="fade-up">
     <h1>Renderização 3D Profissional</h1>
     <p>Imagens que vendem seu projeto</p>
-    <a class="btn" href="https://wa.me/45999685595">Orçamento</a>
+    <a class="btn" href="https://wa.me/5545999685595">Solicitar Orçamento</a>
   </div>
 </header>
 
-<section id="portfolio">
+<section id="portfolio" data-aos="fade-up">
   <h2>Apresentação de Projeto</h2>
 
   <div class="revista-container">
@@ -127,13 +172,17 @@ section{padding:100px 20px;text-align:center}
 
 <footer>© 2026 - Gabriel</footer>
 
+<audio id="flipSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
+AOS.init();
+
 const pageFlip = new St.PageFlip(
   document.getElementById("flipbook"),
   {
-    width: 400,
+    width: 420,
     height: 550,
     showCover: true,
     maxShadowOpacity: 0.5
@@ -141,20 +190,44 @@ const pageFlip = new St.PageFlip(
 );
 
 pageFlip.loadFromHTML([
-  `<div class="page capa">
-      <h1>Projeto Residencial</h1>
-      <p>Renderização 3D</p>
-  </div>`,
 
-  `<div class="page"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></div>`,
-  `<div class="page"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"></div>`,
-  `<div class="page"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e"></div>`,
+`<div class="page capa">
+  <h1>Projeto Residencial</h1>
+  <p>Renderização 3D</p>
+</div>`,
 
-  `<div class="page">
-      <h2>Gostou do projeto?</h2>
-      <a href="https://wa.me/45999685595">Fale comigo</a>
-  </div>`
+`<div class="page">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+  <p>Fachada moderna - iluminação realista</p>
+</div>`,
+
+`<div class="page">
+  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+  <p>Sala integrada com design contemporâneo</p>
+</div>`,
+
+`<div class="page">
+  <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
+  <p>Cozinha planejada com materiais premium</p>
+</div>`,
+
+`<div class="page">
+  <h2>Gostou do projeto?</h2>
+  <a class="btn" href="https://wa.me/5545999685595">Fale comigo</a>
+</div>`
+
 ]);
+
+// som ao virar página
+pageFlip.on("flip", () => {
+  document.getElementById("flipSound").play();
+});
+
+// abertura automática da capa
+setTimeout(() => {
+  pageFlip.flipNext();
+}, 800);
+
 </script>
 
 </body>
