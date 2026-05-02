@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Render 3D Profissional | Arquitetura e Interiores</title>
-
-<meta name="description" content="Renderização 3D profissional para arquitetura, interiores e fachadas.">
+<title>Render 3D Profissional</title>
 
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/page-flip/dist/js/page-flip.browser.js"></script>
@@ -16,30 +14,24 @@
 
 body{
   font-family:Arial;
-  background:#070707;
+  background:#050505;
   color:#fff;
-  animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
+  overflow-x:hidden;
 }
 
 /* NAV */
 nav{
   position:fixed;
   width:100%;
-  padding:15px 40px;
+  padding:20px 40px;
   display:flex;
   justify-content:space-between;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(12px);
   z-index:1000;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
 }
-nav a{color:#fff;margin-left:20px;text-decoration:none}
 
-/* HERO */
+/* HERO CINEMÁTICO */
 header{
   height:100vh;
   background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
@@ -47,94 +39,87 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
+  position:relative;
 }
-.hero h1{font-size:50px}
-.hero p{opacity:0.8}
+
+header::after{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to top,#000 10%,transparent 60%);
+}
+
+.hero{
+  position:relative;
+  z-index:2;
+  animation:zoom 8s ease infinite alternate;
+}
+
+@keyframes zoom{
+  from{transform:scale(1);}
+  to{transform:scale(1.1);}
+}
+
+.hero h1{font-size:55px}
+.hero p{opacity:.8;margin-top:10px}
 
 /* BOTÃO */
 .btn{
-  margin-top:20px;
-  padding:14px 30px;
+  margin-top:25px;
+  padding:15px 35px;
   background:linear-gradient(135deg,#00ff88,#00c853);
+  border-radius:30px;
   color:#000;
   text-decoration:none;
-  border-radius:30px;
   font-weight:bold;
-  transition:0.3s;
+  transition:.3s;
 }
 
 .btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 10px 30px rgba(0,255,136,0.4);
+  transform:scale(1.08);
+  box-shadow:0 15px 40px rgba(0,255,136,0.4);
 }
 
 /* SECTIONS */
-section{padding:100px 20px;text-align:center}
+section{
+  padding:120px 20px;
+  text-align:center;
+}
 
-/* REVISTA */
-.revista-container{
+/* STORY */
+.story{
+  max-width:800px;
+  margin:auto;
+  font-size:22px;
+  line-height:1.6;
+  opacity:.85;
+}
+
+/* ANTES DEPOIS */
+.compare{
   display:flex;
   justify-content:center;
   margin-top:40px;
 }
 
-#flipbook{
-  box-shadow: 
-    0 30px 80px rgba(0,0,0,0.9),
-    inset 0 0 40px rgba(255,255,255,0.05);
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.page{
-  width:100%;
-  height:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  background:#111;
-  position:relative;
-  transition:0.3s;
-}
-
-.page:hover{
-  transform:scale(1.01);
-}
-
-.page img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.page p{
-  position:absolute;
-  bottom:20px;
-  background:rgba(0,0,0,0.6);
-  padding:10px;
-  font-size:14px;
-}
-
-.capa{
-  background:linear-gradient(135deg,#00ff88,#00c853);
-  color:#000;
-}
-
-.controls button{
+.compare img{
+  width:300px;
   margin:10px;
-  padding:10px 20px;
-  border:none;
-  background:#00ff88;
-  cursor:pointer;
-  border-radius:5px;
+  border-radius:10px;
+}
+
+/* REVISTA */
+#flipbook{
+  margin:auto;
+  box-shadow:0 30px 80px rgba(0,0,0,0.9);
 }
 
 /* FOOTER */
 footer{
-  padding:40px;
-  background:#000;
-  opacity:0.6;
+  padding:50px;
+  text-align:center;
+  opacity:.5;
 }
 </style>
 </head>
@@ -142,37 +127,45 @@ footer{
 <body>
 
 <nav>
-  <h2>3D Render</h2>
-  <div>
-    <a href="#">Início</a>
-    <a href="#portfolio">Portfólio</a>
-  </div>
+  <h2>Gabriel 3D</h2>
 </nav>
 
 <header>
-  <div class="hero" data-aos="fade-up">
-    <h1>Renderização 3D Profissional</h1>
-    <p>Imagens que vendem seu projeto</p>
-    <a class="btn" href="https://wa.me/5545999685595">Solicitar Orçamento</a>
+  <div class="hero">
+    <h1>Imagens que fazem seu projeto ser escolhido</h1>
+    <p>Renderizações que transformam ideia em desejo</p>
+    <a class="btn" href="https://wa.me/5545999685595">Fechar Projeto</a>
   </div>
 </header>
 
-<section id="portfolio" data-aos="fade-up">
-  <h2>Apresentação de Projeto</h2>
+<section data-aos="fade-up">
+  <h2>Você não vende projeto... vende percepção</h2>
+  <p class="story">
+    Seu cliente não entende planta baixa.<br>
+    Ele decide com base no que consegue visualizar.<br><br>
+    É aqui que o render profissional entra.
+  </p>
+</section>
 
-  <div class="revista-container">
-    <div id="flipbook"></div>
-  </div>
-
-  <div class="controls">
-    <button onclick="pageFlip.flipPrev()">⬅️</button>
-    <button onclick="pageFlip.flipNext()">➡️</button>
+<section data-aos="fade-up">
+  <h2>Antes vs Depois</h2>
+  <div class="compare">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
   </div>
 </section>
 
-<footer>© 2026 - Gabriel</footer>
+<section data-aos="fade-up">
+  <h2>Apresentação Profissional</h2>
+  <div id="flipbook"></div>
+</section>
 
-<audio id="flipSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+<section data-aos="fade-up">
+  <h2>Pronto para valorizar seus projetos?</h2>
+  <a class="btn" href="https://wa.me/5545999685595">Falar no WhatsApp</a>
+</section>
+
+<footer>© 2026 Gabriel</footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
@@ -181,53 +174,22 @@ AOS.init();
 
 const pageFlip = new St.PageFlip(
   document.getElementById("flipbook"),
-  {
-    width: 420,
-    height: 550,
-    showCover: true,
-    maxShadowOpacity: 0.5
-  }
+  {width:400,height:550,showCover:true}
 );
 
 pageFlip.loadFromHTML([
 
-`<div class="page capa">
-  <h1>Projeto Residencial</h1>
-  <p>Renderização 3D</p>
-</div>`,
+`<div class="page capa"><h1>Projeto Residencial</h1></div>`,
 
-`<div class="page">
-  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-  <p>Fachada moderna - iluminação realista</p>
-</div>`,
+`<div class="page"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></div>`,
 
-`<div class="page">
-  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-  <p>Sala integrada com design contemporâneo</p>
-</div>`,
+`<div class="page"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"></div>`,
 
-`<div class="page">
-  <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
-  <p>Cozinha planejada com materiais premium</p>
-</div>`,
-
-`<div class="page">
-  <h2>Gostou do projeto?</h2>
-  <a class="btn" href="https://wa.me/5545999685595">Fale comigo</a>
-</div>`
+`<div class="page"><h2>Entre em contato</h2></div>`
 
 ]);
 
-// som ao virar página
-pageFlip.on("flip", () => {
-  document.getElementById("flipSound").play();
-});
-
-// abertura automática da capa
-setTimeout(() => {
-  pageFlip.flipNext();
-}, 800);
-
+setTimeout(()=>{pageFlip.flipNext();},800);
 </script>
 
 </body>
