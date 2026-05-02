@@ -4,17 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Render 3D Profissional</title>
+<title>Interior Architecture Studio</title>
 
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/page-flip/dist/js/page-flip.browser.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
 
 body{
-  font-family:Arial;
-  background:#050505;
+  background:#0b0b0b;
   color:#fff;
   overflow-x:hidden;
 }
@@ -23,16 +26,23 @@ body{
 nav{
   position:fixed;
   width:100%;
-  padding:20px 40px;
   display:flex;
   justify-content:space-between;
+  padding:20px 50px;
   background:rgba(0,0,0,0.3);
-  backdrop-filter:blur(12px);
-  z-index:1000;
+  backdrop-filter:blur(10px);
+  z-index:999;
 }
 
-/* HERO CINEMÁTICO */
-header{
+nav a{
+  color:#fff;
+  margin-left:20px;
+  text-decoration:none;
+  opacity:.8;
+}
+
+/* HERO */
+.hero{
   height:100vh;
   background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
   display:flex;
@@ -42,82 +52,113 @@ header{
   position:relative;
 }
 
-header::after{
+.hero::after{
   content:'';
   position:absolute;
-  width:100%;
-  height:100%;
-  background:linear-gradient(to top,#000 10%,transparent 60%);
+  inset:0;
+  background:linear-gradient(to top,#0b0b0b 10%,transparent 70%);
 }
 
-.hero{
+.hero-content{
   position:relative;
   z-index:2;
-  animation:zoom 8s ease infinite alternate;
+  max-width:800px;
 }
 
-@keyframes zoom{
-  from{transform:scale(1);}
-  to{transform:scale(1.1);}
+.hero h1{
+  font-size:60px;
 }
 
-.hero h1{font-size:55px}
-.hero p{opacity:.8;margin-top:10px}
+.hero p{
+  opacity:.7;
+  margin-top:15px;
+}
 
-/* BOTÃO */
 .btn{
+  display:inline-block;
   margin-top:25px;
-  padding:15px 35px;
-  background:linear-gradient(135deg,#00ff88,#00c853);
-  border-radius:30px;
+  padding:14px 30px;
+  background:#00ff88;
   color:#000;
+  border-radius:30px;
   text-decoration:none;
   font-weight:bold;
-  transition:.3s;
-}
-
-.btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 15px 40px rgba(0,255,136,0.4);
 }
 
 /* SECTIONS */
 section{
-  padding:120px 20px;
-  text-align:center;
+  padding:120px 10%;
 }
 
-/* STORY */
-.story{
-  max-width:800px;
-  margin:auto;
-  font-size:22px;
+/* ABOUT */
+.about p{
+  max-width:700px;
+  opacity:.8;
   line-height:1.6;
-  opacity:.85;
 }
 
-/* ANTES DEPOIS */
-.compare{
-  display:flex;
-  justify-content:center;
+/* PROJECTS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
   margin-top:40px;
 }
 
-.compare img{
-  width:300px;
-  margin:10px;
+.project{
+  height:300px;
+  background:#222;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+}
+
+.project img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.project:hover img{
+  transform:scale(1.1);
+}
+
+/* SERVICES */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.card{
+  padding:25px;
+  background:#151515;
   border-radius:10px;
 }
 
-/* REVISTA */
-#flipbook{
-  margin:auto;
-  box-shadow:0 30px 80px rgba(0,0,0,0.9);
+/* CTA */
+.cta{
+  text-align:center;
+  background:#00ff88;
+  color:#000;
+  padding:80px 20px;
+}
+
+.cta a{
+  margin-top:20px;
+  display:inline-block;
+  padding:12px 25px;
+  background:#000;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
 }
 
 /* FOOTER */
 footer{
-  padding:50px;
+  padding:40px;
   text-align:center;
   opacity:.5;
 }
@@ -127,69 +168,90 @@ footer{
 <body>
 
 <nav>
-  <h2>Gabriel 3D</h2>
+  <div><strong>Studio Interior</strong></div>
+  <div>
+    <a href="#projects">Projetos</a>
+    <a href="#about">Sobre</a>
+    <a href="#contact">Contato</a>
+  </div>
 </nav>
 
-<header>
-  <div class="hero">
-    <h1>Imagens que fazem seu projeto ser escolhido</h1>
-    <p>Renderizações que transformam ideia em desejo</p>
-    <a class="btn" href="https://wa.me/5545999685595">Fechar Projeto</a>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>Arquitetura que se sente antes de existir</h1>
+    <p>Projetos de interiores com foco em estética, função e impacto visual.</p>
+    <a class="btn" href="https://wa.me/5545999685595">Solicitar Projeto</a>
   </div>
-</header>
+</div>
 
-<section data-aos="fade-up">
-  <h2>Você não vende projeto... vende percepção</h2>
-  <p class="story">
-    Seu cliente não entende planta baixa.<br>
-    Ele decide com base no que consegue visualizar.<br><br>
-    É aqui que o render profissional entra.
+<!-- ABOUT -->
+<section id="about" class="about" data-aos="fade-up">
+  <h2>Sobre o Estúdio</h2>
+  <p>
+    Criamos experiências arquitetônicas completas, unindo design, renderização 3D e conceito espacial.
+    Cada projeto é pensado para transmitir valor antes mesmo da construção.
   </p>
 </section>
 
-<section data-aos="fade-up">
-  <h2>Antes vs Depois</h2>
-  <div class="compare">
-    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<!-- PROJECTS -->
+<section id="projects" data-aos="fade-up">
+  <h2>Projetos Recentes</h2>
+
+  <div class="projects">
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+    </div>
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+    </div>
+
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
+    </div>
+
   </div>
 </section>
 
+<!-- SERVICES -->
 <section data-aos="fade-up">
-  <h2>Apresentação Profissional</h2>
-  <div id="flipbook"></div>
+  <h2>Serviços</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Render 3D</h3>
+      <p>Imagens realistas para apresentação de projetos.</p>
+    </div>
+
+    <div class="card">
+      <h3>Projetos de Interiores</h3>
+      <p>Ambientes planejados com foco em estética e função.</p>
+    </div>
+
+    <div class="card">
+      <h3>Apresentação Profissional</h3>
+      <p>Materiais visuais para aprovação de clientes.</p>
+    </div>
+
+  </div>
 </section>
 
-<section data-aos="fade-up">
-  <h2>Pronto para valorizar seus projetos?</h2>
-  <a class="btn" href="https://wa.me/5545999685595">Falar no WhatsApp</a>
+<!-- CTA -->
+<section class="cta" data-aos="fade-up">
+  <h2>Pronto para elevar seus projetos?</h2>
+  <a href="https://wa.me/5545999685595">Falar no WhatsApp</a>
 </section>
 
-<footer>© 2026 Gabriel</footer>
+<footer>
+  © 2026 Studio Interior - Todos os direitos reservados
+</footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
 <script>
 AOS.init();
-
-const pageFlip = new St.PageFlip(
-  document.getElementById("flipbook"),
-  {width:400,height:550,showCover:true}
-);
-
-pageFlip.loadFromHTML([
-
-`<div class="page capa"><h1>Projeto Residencial</h1></div>`,
-
-`<div class="page"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></div>`,
-
-`<div class="page"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"></div>`,
-
-`<div class="page"><h2>Entre em contato</h2></div>`
-
-]);
-
-setTimeout(()=>{pageFlip.flipNext();},800);
 </script>
 
 </body>
